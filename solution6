@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        processed_s = ''
+        for char in s:
+            if char.isalnum():
+                processed_s += char.lower()
+
+        left, right = 0, len(processed_s) - 1
+        while left < right:
+            if processed_s[left] != processed_s[right]:
+                return False
+            left += 1
+            right -= 1
+        return True
+
+# Test cases
+if __name__ == "__main__":
+    # Test case 1
+    s1 = "A man, a plan, a canal: Panama"
+    solution = Solution()
+    print("Test case 1:", solution.isPalindrome(s1))  # Expected: True
+
+    # Test case 2
+    s2 = "race a car"
+    print("Test case 2:", solution.isPalindrome(s2))  # Expected: False
+
+    # Test case 3
+    s3 = " "
+    print("Test case 3:", solution.isPalindrome(s3))  # Expected: True
