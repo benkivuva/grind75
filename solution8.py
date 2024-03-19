@@ -4,21 +4,22 @@ from collections import defaultdict
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        char_count = defaultdict(int)
+        # char_count = defaultdict(int)
 
-        for char in s:
-            char_count[char] += 1
+        # for char in s:
+        #     char_count[char] += 1
 
-        for char in t:
-            char_count[char] -= 1
-            if char_count[char] < 0:
-                return False
+        # for char in t:
+        #     char_count[char] -= 1
+        #     if char_count[char] < 0:
+        #         return False
         
-        for count in char_count.values():
-            if count != 0:
-                return False
+        # for count in char_count.values():
+        #     if count != 0:
+        #         return False
         
-        return True
+        # return True
+        return Counter(s) == Counter(t)
 
 # Test cases
 if __name__ == "__main__":
